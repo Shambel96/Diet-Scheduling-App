@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">DietApp</string>
+    <string name="createAccount">Create Account</string>
+    <string name="login">Login</string>
+    <string name="signup">Signup</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="username">Username</string>
+    <string name="signupLocator">Don’t have an account? Sign up</string>
+    <string name="loginLocator">Already have an account? Login</string>
 </resources>
