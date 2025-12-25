@@ -10,34 +10,46 @@ android:layout_height="match_parent">
     android:layout_height="wrap_content">
 
     <TextView
-        android:text="Add Food"
-        android:textSize="22sp"
+        android:text="@string/add_food"
+        android:textSize="27sp"
         android:textStyle="bold"
         android:layout_marginBottom="20dp"
+        android:textColor="#083875"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
 
     <EditText
         android:id="@+id/etFoodName"
-        android:hint="Food Name"
+        android:autofillHints="true"
+        android:hint="@string/food_name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:padding="15dp"
+        android:background="@android:drawable/editbox_background_normal"/>
 
     <EditText
         android:id="@+id/etCalorie"
-        android:hint="Calories"
+        android:autofillHints="true"
+        android:hint="@string/calories"
         android:inputType="number"
         android:layout_marginTop="12dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:background="@android:drawable/editbox_background_normal"/>
 
     <EditText
         android:id="@+id/etGram"
-        android:hint="Gram"
+        android:autofillHints="true"
+        android:hint="@string/gram"
         android:inputType="number"
         android:layout_marginTop="12dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:background="@android:drawable/editbox_background_normal"/>
 
     <Spinner
         android:id="@+id/spType"
@@ -47,17 +59,24 @@ android:layout_height="match_parent">
 
     <EditText
         android:id="@+id/etDate"
-        android:hint="Date (YYYY-MM-DD)"
+        android:autofillHints="true"
+        android:hint="@string/date"
         android:layout_marginTop="12dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:inputType="date"/>
 
     <Button
         android:id="@+id/btnSave"
-        android:text="Save Food"
+        android:text="@string/save_food"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:backgroundTint="#083765"
+        android:textColor="#fff100"
+        android:textSize="20sp"/>
+
 
 </LinearLayout>
 </ScrollView>
