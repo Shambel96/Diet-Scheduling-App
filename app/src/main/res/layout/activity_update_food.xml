@@ -6,39 +6,53 @@
 
     <EditText
         android:id="@+id/etName"
-        android:hint="Food Name"
+        android:hint="@string/food_name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:background="@android:drawable/editbox_background_normal"/>
 
     <EditText
         android:id="@+id/etCalorie"
-        android:hint="Calorie"
+        android:hint="@string/calories"
         android:inputType="number"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:background="@android:drawable/editbox_background_normal"/>
 
     <EditText
         android:id="@+id/etGram"
-        android:hint="Gram"
+        android:hint="@string/gram"
         android:inputType="number"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:background="@android:drawable/editbox_background_normal"/>
 
     <EditText
         android:id="@+id/etType"
         android:hint="Type (Protein/Vitamin)"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:background="@android:drawable/editbox_background_normal"/>
 
     <EditText
         android:id="@+id/etDate"
-        android:hint="Date"
+        android:hint="@string/date"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:background="@android:drawable/editbox_background_normal"/>
 
     <Button
         android:id="@+id/btnUpdate"
-        android:text="Update Food"
+        android:text="@string/update_food"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:backgroundTint="#083765"
+        android:textColor="#fff100"
+        android:textSize="22sp"
+        android:padding="10dp"/>
 </LinearLayout>
