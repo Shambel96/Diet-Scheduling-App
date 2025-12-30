@@ -45,7 +45,7 @@ public class SignupActivity extends AppCompatActivity {
 
             if (inserted) {
                 Toast.makeText(this, "Signup successful", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, MainActivity.class));
+                startActivity(new Intent(this, LoginActivity.class));
                 finish();
             } else {
                 Toast.makeText(this, "Signup failed", Toast.LENGTH_SHORT).show();
@@ -54,7 +54,7 @@ public class SignupActivity extends AppCompatActivity {
 
         // Go to Login
         tvLogin.setOnClickListener(v ->
-                startActivity(new Intent(this, MainActivity.class))
+                startActivity(new Intent(this, LoginActivity.class))
         );
     }
 }
