@@ -1,9 +1,13 @@
 package com.example.dietapp;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -31,6 +35,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ImageButton btnIcon = findViewById(R.id.btnIcon);
+
+        btnIcon.setOnClickListener(v -> {
+            // Create dialog
+            final Dialog dialog = new Dialog(MainActivity.this);
+            dialog.setContentView(R.layout.dialog_about);
+            dialog.setCancelable(true);
+            if (dialog.getWindow() != null) {
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            }
+
+            // Close button
+            Button btnClose = dialog.findViewById(R.id.btnCloseDialog);
+            btnClose.setOnClickListener(view -> dialog.dismiss());
+
+            dialog.show();
+        });
+
 
         recyclerFood = findViewById(R.id.recyclerFood);
         btnAddFood = findViewById(R.id.btnAddFood);
