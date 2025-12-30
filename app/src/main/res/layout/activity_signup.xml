@@ -1,85 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="#F5F5F5"
     tools:context=".SignupActivity">
+
     <LinearLayout
-        android:orientation="vertical"
-        android:padding="24dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        tools:ignore="MissingConstraints">
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:background="@drawable/rounded_container"
+        android:elevation="4dp">
 
         <TextView
-            android:text="@string/createAccount"
-            android:textSize="27sp"
-            android:layout_gravity="center"
-            android:textStyle="bold"
-            android:layout_marginBottom="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#083765"/>
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:text="@string/createAccount"
+            android:textColor="#083765"
+            android:textSize="27sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/etUsername"
-            android:autofillHints="true"
-            android:hint="@string/username"
-            android:inputType="textPersonName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="15dp"
-            android:background="@android:drawable/editbox_background_normal"/>
+            android:autofillHints="username"
+            android:background="@android:drawable/editbox_background_normal"
+            android:hint="@string/username"
+            android:inputType="textPersonName"
+            android:padding="15dp" />
 
         <EditText
             android:id="@+id/etEmail"
-            android:autofillHints="true"
-            android:hint="@string/email"
-            android:inputType="textEmailAddress"
-            android:layout_marginTop="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="15dp"
-            android:background="@android:drawable/editbox_background_normal"/>
+            android:layout_marginTop="12dp"
+            android:autofillHints="emailAddress"
+            android:background="@android:drawable/editbox_background_normal"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:padding="15dp" />
 
         <EditText
             android:id="@+id/etPassword"
-            android:autofillHints="true"
-            android:hint="@string/password"
-            android:inputType="textPassword"
-            android:layout_marginTop="12dp"
-            android:padding="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:drawable/editbox_background_normal"/>
+            android:layout_marginTop="12dp"
+            android:autofillHints="password"
+            android:background="@android:drawable/editbox_background_normal"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:padding="15dp" />
 
         <Button
             android:id="@+id/btnSignup"
-            android:text="@string/signup"
-            android:layout_marginTop="20dp"
-            android:padding="15sp"
-            android:textSize="23sp"
-            android:textColor="#fff100"
-            android:backgroundTint="#083765"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#083765"
+            android:padding="15dp"
+            android:text="@string/signup"
+            android:textColor="#fff100"
+            android:textSize="23sp" />
 
         <TextView
             android:id="@+id/tvLogin"
-            android:text="@string/loginLocator"
-            android:textColor="#1E88E5"
-            android:textSize="17sp"
-            android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            />
+            android:layout_marginTop="16dp"
+            android:text="@string/loginLocator"
+            android:textColor="#1E88E5"
+            android:textSize="17sp" />
 
     </LinearLayout>
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
-
+</LinearLayout>

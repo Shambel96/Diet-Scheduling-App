@@ -1,50 +1,70 @@
-<tools:LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:orientation="vertical"
-    android:padding="24dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#F5F5F5"
+    android:gravity="center_horizontal|center_vertical"
     tools:context=".LoginActivity">
 
-<TextView
-    android:text="@string/login"
-    android:textSize="24sp"
-    android:textStyle="bold"
-    android:layout_marginBottom="20dp"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal"
+        android:elevation="4dp"
+        android:background="@drawable/rounded_container"> <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="Login"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#333333"/>
 
-<EditText
-    android:id="@+id/etEmail"
-    android:autofillHints="true"
-    android:hint="@string/email"
-    android:inputType="textEmailAddress"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="emailAddress"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp" />
 
-<EditText
-    android:id="@+id/etPassword"
-    android:autofillHints="true"
-    android:hint="@string/password"
-    android:inputType="textPassword"
-    android:layout_marginTop="12dp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:autofillHints="password"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:minHeight="48dp" />
 
-<Button
-    android:id="@+id/btnLogin"
-    android:text="@string/login"
-    android:layout_marginTop="20dp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="#083765"
+            android:padding="12dp"
+            android:text="Login"
+            android:textColor="#fff100"
+            android:textSize="18sp" />
 
-<TextView
-    android:id="@+id/tvSignup"
-    android:text="@string/signupLocator"
-    android:textColor="#1E88E5"
-    android:layout_marginTop="16dp"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tvSignup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:padding="8dp"
+            android:text="Don't have an account? Sign up"
+            android:textColor="#1E88E5"
+            android:textSize="16sp" />
 
-</tools:LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
