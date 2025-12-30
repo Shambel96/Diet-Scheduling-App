@@ -3,17 +3,65 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btnAddFood"
-        android:text="Add Food"
+    <!-- HEADER -->
+    <LinearLayout
+        android:id="@+id/headerLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"/>
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:layout_alignParentTop="true"
+        android:gravity="center_vertical">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerFood"
+        <TextView
+            android:id="@+id/tvAppName"
+            android:text="@string/app_name"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <ImageButton
+            android:id="@+id/btnIcon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_more_vert"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/diet_icon"/>
+    </LinearLayout>
+
+    <!-- ADD FOOD BUTTON -->
+    <Button
+        android:id="@+id/btnAddFood"
+        android:text="@string/add_food"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="15dp"
+        android:backgroundTint="#083765"
+        android:textColor="#fff100"
+        android:textSize="22sp"/>
+
+    <!-- FOOD LIST -->
+    <LinearLayout
+        android:id="@+id/recyclerContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/btnAddFood"/>
+        android:layout_below="@id/headerLayout"
+        android:layout_above="@id/btnAddFood"
+        android:layout_margin="12dp"
+        android:background="@drawable/bg_recycler_rounded"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerFood"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"/>
+    </LinearLayout>
+
 
 </RelativeLayout>

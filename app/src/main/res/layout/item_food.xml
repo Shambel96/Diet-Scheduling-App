@@ -10,7 +10,7 @@
 
     <TextView
         android:id="@+id/tvFoodName"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@android:color/black"
         android:layout_width="wrap_content"
@@ -18,15 +18,16 @@
 
     <TextView
         android:id="@+id/tvDetails"
-        android:textSize="14sp"
+        android:textSize="17sp"
         android:textColor="@android:color/darker_gray"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"/>
+        android:layout_marginTop="6dp"/>
 
     <Button
         android:id="@+id/btnDelete"
-        android:text="Delete"
+        android:text="@string/delete"
+        android:textSize="15sp"
         android:textColor="@android:color/white"
         android:backgroundTint="@android:color/holo_red_dark"
         android:layout_width="wrap_content"
