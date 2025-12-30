@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.dietapp.R;
 import com.example.dietapp.database.DatabaseHelper;
 import com.example.dietapp.utils.SessionManager;
 
@@ -22,6 +21,17 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // ✅ INIT SESSION FIRST
+        session = new SessionManager(this);
+
+        // 🔐 CHECK IF USER ALREADY LOGGED IN
+        if (session.isLoggedIn()) {
+            startActivity(new Intent(this, MainActivity.class));
+            finish();
+            return;
+        }
+
         setContentView(R.layout.activity_login);
 
         // Init views
@@ -31,7 +41,6 @@ public class LoginActivity extends AppCompatActivity {
         tvSignup = findViewById(R.id.tvSignup);
 
         db = new DatabaseHelper(this);
-        session = new SessionManager(this);
 
         // LOGIN button
         btnLogin.setOnClickListener(v -> {
@@ -46,7 +55,9 @@ public class LoginActivity extends AppCompatActivity {
             Cursor cursor = db.loginUser(email, password);
 
             if (cursor.moveToFirst()) {
-                int userId = cursor.getInt(0); // first column = id
+                int userId = cursor.getInt(0);
+
+                // ✅ SAVE LOGIN SESSION
                 session.saveUser(userId);
 
                 Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
