@@ -8,4 +8,20 @@
     <string name="username">Username</string>
     <string name="signupLocator">Don’t have an account? Sign up</string>
     <string name="loginLocator">Already have an account? Login</string>
+    <string name="date">Date (YYYY-MM-DD)</string>
+    <string name="add_food">Add Food</string>
+    <string name="food_name">Food Name</string>
+    <string name="calories">Calories</string>
+    <string name="gram">Gram</string>
+    <string name="save_food">Save Food</string>
+    <string name="update_food">Update Food</string>
+    <string name="delete">Delete</string>
+    <string name="diet_schedule_icon">Diet Schedule Icon</string>
+    <string name="diet_icon">Diet Icon</string>
+    <string name="app_icon">App Icon</string>
+    <string name="diet_schedule_app">Diet Schedule App</string>
+    <string name="submitted_to_mr_aschalow">Submitted to: Mr.Aschalow</string>
+    <string name="course_descrption">Project submitted for Android Application Development course.</string>
+    <string name="close">Close</string>
+    <string name="swe_students">Developed by: 4th year SWE Students</string>
 </resources>
