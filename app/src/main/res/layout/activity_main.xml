@@ -4,34 +4,36 @@
     android:layout_height="match_parent">
 
     <!-- HEADER -->
+
+    <!-- ADD FOOD BUTTON -->
     <LinearLayout
         android:id="@+id/headerLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
         android:layout_alignParentTop="true"
-        android:gravity="center_vertical">
+        android:layout_marginTop="5dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="16dp">
 
         <TextView
             android:id="@+id/tvAppName"
-            android:text="@string/app_name"
-            android:textSize="20sp"
-            android:textStyle="bold"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:text="@string/app_name"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <ImageButton
             android:id="@+id/btnIcon"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@drawable/ic_more_vert"
             android:background="@android:color/transparent"
-            android:contentDescription="@string/diet_icon"/>
+            android:contentDescription="@string/diet_icon"
+            android:src="@drawable/ic_more_vert" />
     </LinearLayout>
 
-    <!-- ADD FOOD BUTTON -->
     <Button
         android:id="@+id/btnAddFood"
         android:text="@string/add_food"
