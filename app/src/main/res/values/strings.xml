@@ -24,4 +24,5 @@
     <string name="course_descrption">Project submitted for Android Application Development course.</string>
     <string name="close">Close</string>
     <string name="swe_students">Developed by: 4th year SWE Students</string>
+    <string name="full_name">Full name</string>
 </resources>
