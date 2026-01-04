@@ -69,8 +69,12 @@ public class AddFoodActivity extends AppCompatActivity {
                     year, month, day
             );
 
+            // Restrict to today or future only
+            datePicker.getDatePicker().setMinDate(calendar.getTimeInMillis());
+
             datePicker.show();
         });
+
 
         // ================= SAVE BUTTON =================
         btnSave.setOnClickListener(v -> {

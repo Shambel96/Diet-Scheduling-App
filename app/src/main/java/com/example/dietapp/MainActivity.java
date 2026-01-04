@@ -6,8 +6,11 @@ import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -34,24 +37,49 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main); // or activity_admin
+
+        getWindow().setStatusBarColor(android.graphics.Color.TRANSPARENT);
+
+        // Option 3: light background → dark icons
+        getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR // ✅ dark icons
+        );
+        insertAdminIfNotExists();
+
         setContentView(R.layout.activity_main);
         ImageButton btnIcon = findViewById(R.id.btnIcon);
 
+
         btnIcon.setOnClickListener(v -> {
-            // Create dialog
-            final Dialog dialog = new Dialog(MainActivity.this);
-            dialog.setContentView(R.layout.dialog_about);
-            dialog.setCancelable(true);
+            Dialog dialog = new Dialog(MainActivity.this);
+            dialog.setContentView(R.layout.dialog_menu);
+
             if (dialog.getWindow() != null) {
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.getWindow().setBackgroundDrawable(
+                        new ColorDrawable(Color.TRANSPARENT)
+                );
             }
 
-            // Close button
-            Button btnClose = dialog.findViewById(R.id.btnCloseDialog);
-            btnClose.setOnClickListener(view -> dialog.dismiss());
+            TextView btnLogout = dialog.findViewById(R.id.btnLogout);
+            TextView btnAbout = dialog.findViewById(R.id.btnAbout);
+
+            btnLogout.setOnClickListener(view -> {
+                dialog.dismiss(); // close menu
+                showLogoutConfirmation();
+            });
+
+            btnAbout.setOnClickListener(view -> {
+                dialog.dismiss();
+                showAboutDialog(); // if you already created about dialog
+            });
 
             dialog.show();
         });
+
+
 
 
         recyclerFood = findViewById(R.id.recyclerFood);
@@ -67,6 +95,61 @@ public class MainActivity extends AppCompatActivity {
         btnAddFood.setOnClickListener(v ->
                 startActivity(new Intent(this, AddFoodActivity.class))
         );
+    }
+
+    private void showLogoutConfirmation() {
+        new androidx.appcompat.app.AlertDialog.Builder(this)
+                .setTitle("Logout")
+                .setMessage("Are you sure you want to logout?")
+                .setPositiveButton("Yes", (dialog, which) -> {
+                    session.logout();
+
+                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                })
+                .setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss())
+                .setCancelable(true)
+                .show();
+    }
+
+    private void showAboutDialog() {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.dialog_about);
+
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawable(
+                    new ColorDrawable(Color.TRANSPARENT)
+            );
+        }
+
+        Button btnClose = dialog.findViewById(R.id.btnCloseDialog);
+        btnClose.setOnClickListener(v -> dialog.dismiss());
+
+        dialog.show();
+    }
+
+    private void insertAdminIfNotExists() {
+        DatabaseHelper db = new DatabaseHelper(this);
+
+        // Check if admin already exists
+        Cursor cursor = db.getReadableDatabase().rawQuery(
+                "SELECT * FROM users WHERE role='admin'", null);
+
+        if (cursor.getCount() == 0) {
+            // Insert admin
+            boolean inserted = db.registerUser("Admin", "admin@gmail.com", "admin123", "admin");
+
+            if (inserted) {
+                Toast.makeText(this, "Admin account created!", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Failed to create admin", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(this, "Admin already exists", Toast.LENGTH_SHORT).show();
+        }
+
+        cursor.close();
     }
 
     @Override
