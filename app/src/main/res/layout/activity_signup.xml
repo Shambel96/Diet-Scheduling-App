@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:autofillHints="username"
             android:background="@android:drawable/editbox_background_normal"
-            android:hint="@string/username"
+            android:hint="@string/full_name"
             android:inputType="textPersonName"
             android:padding="15dp" />
 
